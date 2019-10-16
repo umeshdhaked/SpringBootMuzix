@@ -1,12 +1,12 @@
 package com.stackroute.muzix.service;
 
-import com.stackroute.muzix.model.User;
+import com.stackroute.muzix.model.Track;
 
 public interface MusicTrackService {
-    public Iterable<User> saveTrack(User user);
-    public Iterable<User> displayAllTrack();
+    public Iterable<Track> saveTrack(Track track);
+    public Iterable<Track> displayAllTrack();
     public void removeTrack(int trackId);
-    public void updateTrackComment(User user);
+    public void updateTrackComment(Track track);
 
 
 }

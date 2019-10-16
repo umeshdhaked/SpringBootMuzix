@@ -1,12 +1,9 @@
 package com.stackroute.muzix.service;
 
-import com.stackroute.muzix.model.User;
+import com.stackroute.muzix.model.Track;
 import com.stackroute.muzix.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.Iterator;
-import java.util.Optional;
 
 @Repository
 public class MusicTrackServiceImpl implements MusicTrackService {
@@ -18,13 +15,13 @@ public class MusicTrackServiceImpl implements MusicTrackService {
     }
 
     @Override
-    public Iterable<User> saveTrack(User user) {
-        userRepo.save(user);
+    public Iterable<Track> saveTrack(Track track) {
+        userRepo.save(track);
         return displayAllTrack();
     }
 
     @Override
-    public Iterable<User> displayAllTrack() {
+    public Iterable<Track> displayAllTrack() {
         return userRepo.findAll();
     }
 
@@ -35,13 +32,13 @@ public class MusicTrackServiceImpl implements MusicTrackService {
     }
 
     @Override
-    public void updateTrackComment(User user) {
-        User user1 = new User();
-        user1.setTrackId(user.getTrackId());
-        user1.setTrackComment(user.getTrackComment());
-        user1.setTrackName(user.getTrackName());
+    public void updateTrackComment(Track track) {
+        Track track1 = new Track();
+        track1.setTrackId(track.getTrackId());
+        track1.setTrackComment(track.getTrackComment());
+        track1.setTrackName(track.getTrackName());
 
-        saveTrack(user1);
+        saveTrack(track1);
 
     }
 }

@@ -4,15 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Track {
     @Id
     int trackId;
     String trackName;
     String trackComment;
-    public User() {
+    public Track() {
     }
 
-    public User(int trackId, String trackName, String trackComment) {
+    public Track(int trackId, String trackName, String trackComment) {
         this.trackId = trackId;
         this.trackName = trackName;
         this.trackComment = trackComment;
