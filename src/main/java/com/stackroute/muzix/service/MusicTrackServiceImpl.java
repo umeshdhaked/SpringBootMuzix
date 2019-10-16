@@ -5,6 +5,8 @@ import com.stackroute.muzix.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MusicTrackServiceImpl implements MusicTrackService {
 
@@ -15,13 +17,13 @@ public class MusicTrackServiceImpl implements MusicTrackService {
     }
 
     @Override
-    public Iterable<Track> saveTrack(Track track) {
+    public List<Track> saveTrack(Track track) {
         userRepo.save(track);
-        return displayAllTrack();
+        return getAllTrack();
     }
 
     @Override
-    public Iterable<Track> displayAllTrack() {
+    public List<Track> getAllTrack() {
         return userRepo.findAll();
     }
 
@@ -33,12 +35,11 @@ public class MusicTrackServiceImpl implements MusicTrackService {
 
     @Override
     public void updateTrackComment(Track track) {
-        Track track1 = new Track();
-        track1.setTrackId(track.getTrackId());
-        track1.setTrackComment(track.getTrackComment());
-        track1.setTrackName(track.getTrackName());
 
-        saveTrack(track1);
+      String name="unknown";
+      track.setTrackName(name);
+        userRepo.save(track);
 
     }
+
 }

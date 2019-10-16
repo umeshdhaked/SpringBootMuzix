@@ -44,6 +44,27 @@
             <!--			<scope>runtime</scope>-->
         </dependency>
 
+        <!-- Dependency for jaxb-api to be added(if using JDK9) -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.4.0-b180830.0359</version>
+        </dependency>
+
+         Dependency for jaxb-impl to be added(if using JDK9)
+        		<dependency>
+        			<groupId>com.sun.xml.bind</groupId>
+        			<artifactId>jaxb-impl</artifactId>
+        			<version>2.4.0-b180830.0438</version>
+        		</dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.23.1-GA</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
