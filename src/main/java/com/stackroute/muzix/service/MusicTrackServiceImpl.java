@@ -35,8 +35,7 @@ public class MusicTrackServiceImpl implements MusicTrackService {
 
     @Override
     public void updateTrackComment(Track track) {
-        trackRepo.findAll();
-
+  
         Track track1 = trackRepo.findById(track.getTrackId()).get();
         track1.setTrackComment(track.getTrackComment());
 
