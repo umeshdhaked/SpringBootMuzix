@@ -30,27 +30,22 @@ public class MusicTrackController {
 
     @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) throws IOException {
-        System.out.println("inside save"+track.getTrackId()+" "+track.getTrackName()+track.getTrackComment());
         musicTrackService.saveTrack(track);
       //response.sendRedirect("/index.html");
         return new ResponseEntity<List<Track> >(musicTrackService.getAllTrack(), HttpStatus.OK);
     }
     @GetMapping("track")
     private ResponseEntity<?> displayAllTrack(){
-        System.out.println("inside show");
         return new ResponseEntity<List<Track> >(musicTrackService.getAllTrack(), HttpStatus.OK);
     }
     @DeleteMapping("track")
     private ResponseEntity<?> deleteTrack(@RequestBody Track track){
-        System.out.println("inside delete");
         musicTrackService.removeTrack(track.getTrackId());
-        return displayAllTrack();
+        return new ResponseEntity<List<Track> >(musicTrackService.getAllTrack(), HttpStatus.OK);
     }
     @PutMapping("track")
     private ResponseEntity<?> updateTrack(@RequestBody Track track){
-        System.out.println("inside update");
         musicTrackService.updateTrackComment(track);
-      // return displayAllTrack();
        return new ResponseEntity<List<Track> >(musicTrackService.getAllTrack(), HttpStatus.OK);
     }
 
