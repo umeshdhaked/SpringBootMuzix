@@ -37,7 +37,7 @@ public class MusicTrackServiceImpl implements MusicTrackService {
     public void updateTrackComment(Track track) {
         trackRepo.findAll();
 
-        Track track1 = trackRepo.getOne(track.getTrackId());
+        Track track1 = trackRepo.findById(track.getTrackId()).get();
         track1.setTrackComment(track.getTrackComment());
 
         trackRepo.save(track1);
